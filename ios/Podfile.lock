@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_plugin_mep (8.11.2):
+    - Flutter
+    - MEPSDK (~> 8.11.2)
+  - MEPSDK (8.11.2)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_plugin_mep (from `.symlinks/plugins/flutter_plugin_mep/ios`)
+
+SPEC REPOS:
+  https://maven.moxtra.com/repo/moxtra-specs.git:
+    - MEPSDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_plugin_mep:
+    :path: ".symlinks/plugins/flutter_plugin_mep/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_plugin_mep: 71eb2249661d8037dae5a237b9a13a10519710a1
+  MEPSDK: 669e105f977e6a3307f787e1462d19f70c912222
+
+PODFILE CHECKSUM: 117d518f3eaa79f5aff19278f085c1e447ae6840
+
+COCOAPODS: 1.12.1
