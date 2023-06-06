@@ -53,14 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _moxoLogin() async {
     var domain = dotenv.env['DOMAIN'];
+    var uniqueId = dotenv.env['UNIQUE_ID'];
+    var email = dotenv.env['EMAIL'];
+    var body = {
+      'client_id': dotenv.env['CLIENT_ID'],
+      'client_secret': dotenv.env['CLIENT_SECRET'],
+      'org_id': dotenv.env['ORG_ID']
+    };
+    if (uniqueId != null) {
+      body['unique_id'] = uniqueId;
+    } else {
+      body['email'] = email;
+    }
     final response = await http.post(Uri.https(domain!, 'v1/core/oauth/token'),
-        body: jsonEncode({
-          'client_id': dotenv.env['CLIENT_ID'],
-          'client_secret': dotenv.env['CLIENT_SECRET'],
-          'org_id': dotenv.env['ORG_ID'],
-          'email': dotenv.env['EMAIL']
-        }),
-        headers: {'Content-Type': 'application/json'});
+        body: jsonEncode(body), headers: {'Content-Type': 'application/json'});
     var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
     var accessToken = decodedResponse['access_token'];
     FlutterPluginMep.setupDomain(domain);
